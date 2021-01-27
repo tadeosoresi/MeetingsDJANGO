@@ -105,8 +105,9 @@ header li {
 }
 /* RESPONSIVE */
 @media only screen and (max-width: 700px) {
+
   .titulo {
-    font-size: 2.1rem !important;
+    font-size: 2.8rem !important;
     border: .4rem solid #e44037;
     box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
 }
@@ -114,6 +115,13 @@ header li {
     color: white;
     font-size: 3rem;
     margin-top: 2rem;
+}
+  #padding-responsive{
+    padding: .5rem!important;
+}
+  #padding-responsive2 {
+    padding: 1rem !important;
+    margin-bottom: 5rem!important;
 }
 }
   

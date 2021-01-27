@@ -22,8 +22,20 @@ def hidden(request):
 def rooftop(request):
     return render(request, "Meetings/rooftop.html")
 
+def modern(request):
+    return render(request, "Meetings/modern.html")
 
+def woman(request):
+    return render(request, "Meetings/woman.html")
 
+def conglomerate(request):
+    return render(request, "Meetings/conglomerate.html")
+
+def mason(request):
+    return render(request, "Meetings/mason.html")
+
+def nosotros(request):
+    return render(request, "Meetings/nosotros.html")
 def registro(request):
     form = UserCreationForm()
     if request.method == 'POST':

@@ -1,142 +1,177 @@
-  {% extends "Meetings/base.html" %}
-  {% load staticfiles %}
+{% extends "Meetings/base.html" %}
+{% load staticfiles %}
 
-  {% block content %}
-          <!--PRIMERA PRESENTACION (HEADER, TITULO ANIMADO, SCROLL) TODO EN ORDEN-->
-          <div class="container-fluid"  style="background-color: salmon;">
-            <div class="row p-5">
-              <div class="col-md-12 p-5">
-                <header>
-                    <nav class="navbar navbar-expand-lg navbar-light fixed-top mt-2" style="background-color: transparent !important">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCollapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse justify-content-center" id="menuCollapse">
-                            <ul class="navbar-nav animate__animated animate__bounceInRight menuSup">
-                                <li><a href="{% url 'shop' %}" class="active nav-link">Alquila!</a></li>
-                                <li><a href="#" class="nav-link" data-toggle="modal" data-target="#ingresomodal" id="conteoIngreso">Ingresa</a></li>
-                                <li><a href="#" class="nav-link" data-toggle="modal" data-target="#contactomodal" id="conteoContacto">Contactanos</a></li>
-                                <li><a href="{% url 'registro' %}" class="nav-link" id="conteoRegistro">Registrate</a></li>
-                            </ul>
-                        </div>      
-                    </nav>       
-                </header>
-              </div>
-            </div>
-            <div class="row p-5 pt-5">
-                <div class="col-md-12 p-5 mb-5">
-                    <p class="titulo text-center font-weight-bold animate__animated animate__bounceInDown elemento">Tu evento, al alcance.</p>  
-                </div> 
-            </div>
-            <div class="row">
-                <div class="col-md-12 mt-5">
-                    <p class="float-right mt-4" style="font-family: 'Cabin', sans-serif;">Scroll Down!</p>
-                </div>
-            </div>
-            <!--VENTANA MODAL INGRESO Y CONTACTO-->
-            <div class="modal fade" id="ingresomodal" tabindex="-1" role="dialog" aria-labelledby="ingresoModal" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content bg-light">
-                      <div class="modal-header justify-content-center">
-                          <h2 class="modal-title text-center" id="ingresoModal" style="font-family: 'Kumbh Sans', sans-serif;">Ingresa a nuestra plataforma!</h2>
-                      </div>
-                      <div class="modal-body">
-                      <form class="formulario" method="GET" action="">
-                          <div class="form-group">
-                              <input type="email" name="email" class="form-control m-2" id="datos" placeholder="Tu email">
-                              <input type="password" name="contraseña" class="form-control m-2" id="datos" placeholder="Contraseña">
-                              <a href="#"><p class="mt-5 text-center">Olvide mi contraseña y/o usuario</p></a>
-                              <a href="#"><p class="text-center">No tengo cuenta</p></a>
-                          </div>
-                      </form>
-                      </div>
-                      <div class="modal-footer justify-content-center">
-                      <button type="submit" class="btn btn-outline-secondary btn-block" id="modalIngreso" style="width: 10rem; margin-top: 25px;">Ingresar!</button>
-                      </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="contactomodal" tabindex="-1" role="dialog" aria-labelledby="contactoModal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content bg-light">
-                    <div class="modal-header justify-content-center">
-                        <h2 class="modal-title text-center" id="contactoModal" style="font-family: 'Kumbh Sans', sans-serif;">Siempre a tu disposición</h2>
+{% block content %}
+<!--PRIMERA PRESENTACION (HEADER, TITULO ANIMADO, SCROLL) TODO EN ORDEN-->
+<div class="container-fluid" style="background-color: salmon;">
+    <div class="row p-5">
+        <div class="col-md-12 p-5">
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top mt-2"
+                    style="background-color: transparent !important">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCollapse"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="menuCollapse">
+                        <ul class="navbar-nav animate__animated animate__bounceInRight menuSup">
+                            <li><a href="{% url 'shop' %}" class="active nav-link">Alquila!</a></li>
+                            <li><a href="#" class="nav-link" data-toggle="modal" data-target="#ingresomodal"
+                                    id="conteoIngreso">Ingresa</a></li>
+                            <li><a href="#" class="nav-link" data-toggle="modal" data-target="#contactomodal"
+                                    id="conteoContacto">Contactanos</a></li>
+                            <li><a href="{% url 'registro' %}" class="nav-link" id="conteoRegistro">Registrate</a></li>
+                        </ul>
                     </div>
-                    <div class="modal-body">
-                        <form class="formulario" method="GET" action="">
+                </nav>
+            </header>
+        </div>
+    </div>
+    <div class="row p-5 pt-5" id="padding-responsive">
+        <div class="col-md-12 p-5 mb-5" id="padding-responsive2">
+            <p class="titulo text-center font-weight-bold animate__animated animate__bounceInDown elemento">Tu evento,
+                al alcance.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <p class="float-right mt-4" style="font-family: 'Cabin', sans-serif;">Scroll Down!</p>
+        </div>
+    </div>
+    <!--VENTANA MODAL INGRESO Y CONTACTO-->
+    <div class="modal fade" id="ingresomodal" tabindex="-1" role="dialog" aria-labelledby="ingresoModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-light">
+                <div class="modal-header justify-content-center">
+                    <h2 class="modal-title text-center" id="ingresoModal"
+                        style="font-family: 'Kumbh Sans', sans-serif;">Ingresa a nuestra plataforma!</h2>
+                </div>
+                <div class="modal-body">
+                    <form class="formulario" method="GET" action="">
                         <div class="form-group">
-                            <input type="text" name="nombre" class="form-control mt-2" id="datos" placeholder="Tu nombre y apellido">
-                            <input type="email" name="email" class="form-control mt-2" id="datos" placeholder="Tu email">
-                            <textarea rows="5" name="pedido" cols="10" placeholder="¿Que quieres escribirnos?" class="form-control mt-4" id="datos"></textarea>
-                            <p class="mt-4 text-center display-5" data-toggle="tooltip" data-placement="top" title="Llamanos al 2995067624! o acercate Hipolito 675 Neuquén.">Contactate directamente!</p>
+                            <input type="email" name="email" class="form-control m-2" id="datos" placeholder="Tu email">
+                            <input type="password" name="contraseña" class="form-control m-2" id="datos"
+                                placeholder="Contraseña">
+                            <a href="#">
+                                <p class="mt-5 text-center">Olvide mi contraseña y/o usuario</p>
+                            </a>
+                            <a href="#">
+                                <p class="text-center">No tengo cuenta</p>
+                            </a>
                         </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-outline-secondary btn-block" id="modalContacto" style="width: 10rem; margin-top: 1rem;">Enviar!</button>
-                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" class="btn btn-outline-secondary btn-block" id="modalIngreso"
+                        style="width: 10rem; margin-top: 25px;">Ingresar!</button>
                 </div>
             </div>
-            </div>
-            <!--SEGUNDO DIV FONDO CELESTE-->
-            <div class="row" style="background-color: rgb(115, 205, 247);">
-                <div class="col-md-6 text-center" id="plataforma" style="text-shadow: 1px 1px black; letter-spacing: 2px; word-spacing: 4px;">
-                    <h1 class="plataforma ml-3 animate__animated animate__backInLeft">Todavia no probaste nuestra <a href="home.html">Plataforma</a>?<br><br>Que estas esperando!</h1>
-                    <a href="{% url 'shop' %}"><button type="button" class="btn btn-primary btn-lg mt-4 animate__animated animate__backInLeft" style="border-radius: 2rem;">Quiero organizar mi evento!</button></a>
+        </div>
+    </div>
+    <div class="modal fade" id="contactomodal" tabindex="-1" role="dialog" aria-labelledby="contactoModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-light">
+                <div class="modal-header justify-content-center">
+                    <h2 class="modal-title text-center" id="contactoModal"
+                        style="font-family: 'Kumbh Sans', sans-serif;">Siempre a tu disposición</h2>
                 </div>
-                <div class="col-md-6 p-5">
-                    <img class="mt-5 mb-2 float-right img-fluid animate__animated animate__backInRight" src="{%  static  'Meetings/img/image.png'  %}" alt="Organiza tu evento!">
-                </div>
-            </div>
-            <!--DIV DE CALIFICACIONES DE USUARIOS-->
-            <div class="row" style="background-color:#0047BA;">
-                <div class="col-xs-12 col-sm-4 col-md-5">
-                    <div id="carousel" class="carousel slide mt-3 mb-3 ml-2 mr-2" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img class="d-block w-100" src="{%  static  'Meetings/img/review1.jpg'  %}" alt="Experiencia1">
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="{%  static  'Meetings/img/review2.jpg'  %}" alt="Experiencia2">
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="{%  static  'Meetings/img/review3.png'  %}" alt="Experiencia3">
-                          </div>
+                <div class="modal-body">
+                    <form class="formulario" method="GET" action="">
+                        <div class="form-group">
+                            <input type="text" name="nombre" class="form-control mt-2" id="datos"
+                                placeholder="Tu nombre y apellido">
+                            <input type="email" name="email" class="form-control mt-2" id="datos"
+                                placeholder="Tu email">
+                            <textarea rows="5" name="pedido" cols="10" placeholder="¿Que quieres escribirnos?"
+                                class="form-control mt-4" id="datos"></textarea>
+                            <p class="mt-4 text-center display-5" data-toggle="tooltip" data-placement="top"
+                                title="Llamanos al 2995067624! o acercate Hipolito 675 Neuquén.">Contactate
+                                directamente!</p>
                         </div>
-                        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previo</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Siguiente</span>
-                        </a>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" class="btn btn-outline-secondary btn-block" id="modalContacto"
+                        style="width: 10rem; margin-top: 1rem;">Enviar!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--SEGUNDO DIV FONDO CELESTE-->
+    <div class="row" style="background-color: rgb(115, 205, 247);">
+        <div class="col-md-6 text-center" id="plataforma"
+            style="text-shadow: 1px 1px black; letter-spacing: 2px; word-spacing: 4px;">
+            <h1 class="plataforma ml-3 animate__animated animate__backInLeft">Todavia no probaste nuestra <a
+                    href="home.html">Plataforma</a>?<br><br>Que estas esperando!</h1>
+            <a href="{% url 'shop' %}"><button type="button"
+                    class="btn btn-primary btn-lg mt-4 animate__animated animate__backInLeft"
+                    style="border-radius: 2rem;">Quiero organizar mi evento!</button></a>
+        </div>
+        <div class="col-md-6 p-5">
+            <img class="mt-5 mb-2 float-right img-fluid animate__animated animate__backInRight"
+                src="{%  static  'Meetings/img/image.png'  %}" alt="Organiza tu evento!">
+        </div>
+    </div>
+    <!--DIV DE CALIFICACIONES DE USUARIOS-->
+    <div class="row" style="background-color:#0047BA;">
+        <div class="col-xs-12 col-sm-4 col-md-5">
+            <div id="carousel" class="carousel slide mt-3 mb-3 ml-2 mr-2" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{%  static  'Meetings/img/review1.jpg'  %}" alt="Experiencia1">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{%  static  'Meetings/img/review2.jpg'  %}" alt="Experiencia2">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{%  static  'Meetings/img/review3.png'  %}" alt="Experiencia3">
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-8 col-md-7 p-0" style="height: 100%;">
-                    <h2 class="m-5 text-center" style="color: white; font-size: 3em; font-family: 'Kumbh Sans', sans-serif;"><b>Nuestros clientes nos <br>valoran.</b></h2>
-                </div>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previo</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
             </div>
-            <!--DIV DE EQUIPO-->
-            <div  style="background-color: salmon; height: 52rem;">
-              <div class="row">
-                  <div class="col-md-12 text-center p-0">
-                    <h1 class="mt-5 font-weight-bold animate__animated animate__fadeInDown" style="font-size: 4rem; text-transform: uppercase; font-family: 'Josefin Sans', sans-serif;">Nuestro Equipo</h1>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12 text-center">
-                      <img class="h-25 img-fluid rounded-circle animate__animated animate__fadeInDown mt-4" src="{%  static  'Meetings/img/tadeo.jpeg'  %}">
-                      <h2 class="mt-4 animate__animated animate__fadeInDown" style="font-size: 2.5rem;">Tadeo Soresi</h2>
-                      <p class="text-center mt-1 font-weight-bold animate__animated animate__fadeInUpBig" style="font-size: 1.2rem; font-family: 'Josefin Sans', sans-serif;">Soy un inversor y estudiante de Licenciatura en Admninistración, <br>apasionado por las finanzas y la tecnologia.<br> Actualmente me desenvuelvo como desarrollador Full Stack con Python (Django).</p>
-                      <img class="animate__animated animate__fadeInUpBig" src="{%  static  'Meetings/img/github.svg'  %}" alt="mi github" style="width: 2rem;">
-                      <a class="text-dark animate__animated animate__fadeInUpBig" href="https://github.com/tadeosoresi"><span class="ml-1 mt-4">https://github.com/tadeosoresi</span></a>
-                  </div>
-              </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-7 p-0" style="height: 100%;">
+            <h2 class="m-5 text-center" style="color: white; font-size: 3em; font-family: 'Kumbh Sans', sans-serif;">
+                <b>Nuestros clientes nos <br>valoran.</b></h2>
+        </div>
+    </div>
+    <!--DIV DE EQUIPO-->
+    <div style="background-color: salmon; height: 52rem;">
+        <div class="row">
+            <div class="col-md-12 text-center p-0">
+                <h1 class="mt-5 font-weight-bold animate__animated animate__fadeInDown"
+                    style="font-size: 4rem; text-transform: uppercase; font-family: 'Josefin Sans', sans-serif;">Nuestro
+                    Equipo</h1>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="h-25 img-fluid rounded-circle animate__animated animate__fadeInDown mt-4"
+                    src="{%  static  'Meetings/img/tadeo.jpeg'  %}">
+                <h2 class="mt-4 animate__animated animate__fadeInDown" style="font-size: 2.5rem;">Tadeo Soresi</h2>
+                <p class="text-center mt-1 font-weight-bold animate__animated animate__fadeInUpBig"
+                    style="font-size: 1.2rem; font-family: 'Josefin Sans', sans-serif;">Soy un inversor y estudiante de
+                    Licenciatura en Admninistración, <br>apasionado por las finanzas y la tecnologia.<br> Actualmente me
+                    desenvuelvo como desarrollador Full Stack con Python (Django).</p>
+                <img class="animate__animated animate__fadeInUpBig" src="{%  static  'Meetings/img/github.svg'  %}"
+                    alt="mi github" style="width: 2rem;">
+                <a class="text-dark animate__animated animate__fadeInUpBig" href="https://github.com/tadeosoresi"><span
+                        class="ml-1 mt-4">https://github.com/tadeosoresi</span></a>
+            </div>
+        </div>
+    </div>
     {% endblock %}
