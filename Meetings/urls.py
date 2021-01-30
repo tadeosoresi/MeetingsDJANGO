@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from Meetings import views
 
 urlpatterns = [
@@ -12,4 +14,7 @@ urlpatterns = [
     path('woman', views.woman, name='woman'),
     path('mason', views.mason, name='mason'),
     path('conglomerate', views.conglomerate, name='conglomerate'),
+    path('tienda', views.tienda, name='tienda'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

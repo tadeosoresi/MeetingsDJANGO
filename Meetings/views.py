@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
+from Meetings.models import Espacios #importamos de models de la app
 
 # Create your views here.
 
@@ -36,6 +37,11 @@ def mason(request):
 
 def nosotros(request):
     return render(request, "Meetings/nosotros.html")
+
+def tienda(request):
+    espacios = Espacios.objects.all()
+    return render(request, "Meetings/tienda.html", {'espacios':espacios})
+
 def registro(request):
     form = UserCreationForm()
     if request.method == 'POST':

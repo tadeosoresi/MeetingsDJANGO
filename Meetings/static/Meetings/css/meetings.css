@@ -57,7 +57,7 @@ header li {
     padding-right: 5%;
     font-size: 1.5em;
     color: rgb(0, 0, 0);
-    background-image: url(./Imagenes/search.png);
+    background-image: url(../img/search.png);
     background-repeat: no-repeat;
     background-position: 15px 15px;
     -webkit-transition: background-position .2s;
@@ -71,21 +71,17 @@ header li {
     opacity: .6;
     font-size: 1em;
 }
+/* a borrar */
 .sidebarCSS li {
   font-family: 'Comfortaa', cursive;
   color: black;
   overflow-x: hidden;
 }
-#divcards {
-  background-image: url(./imagenes/fondo2.png);
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-}
 #divcards a {
   cursor: pointer;
 }
 #cards {
-  background-color: rgba(245, 242, 239, 0.801);
+  background-color: #f9f7fc;
   -webkit-box-shadow: 6px 10px 13px -6px rgba(0,0,0,0.75);
   -moz-box-shadow: 6px 10px 13px -6px rgba(0,0,0,0.75);
   transition: all 0.4s;

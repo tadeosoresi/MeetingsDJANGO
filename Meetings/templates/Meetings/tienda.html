@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="{%  static  'Meetings/css/meetings.css'  %}">
+    <title>Meetings</title>
+    <style>
+        #wrapper {
+            overflow-x: hidden;
+        }
+
+        #sidebar-wrapper {
+            min-height: 100vh;
+            width: 18rem;
+            margin-left: -15rem;
+            line-height: 2;
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+        }
+
+        #sidebar-wrapper .sidebar-heading {
+            padding: 0.875rem 1.25rem;
+            font-size: 1.2rem;
+        }
+
+        #sidebar-wrapper .list-group {
+            width: 15rem;
+        }
+
+        #page-content-wrapper {
+            min-width: 100vw;
+        }
+
+        #wrapper.toggled #sidebar-wrapper {
+            margin-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: 0;
+            }
+
+            #page-content-wrapper {
+                min-width: 0;
+                width: 100%;
+            }
+
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: -20rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Sidebar -->
+        <div class="d-flex" id="wrapper">
+
+            <!-- Sidebar -->
+            <div class="bg-light border-right mt-5" id="sidebar-wrapper">
+                <div class="col-xs-12 col-sm-12 col-md-2">
+                    <img class="img-fluid" src="{%  static  'Meetings/img/logo2.png'  %}" alt="logoMeetings">
+                </div>
+                <div class="sidebar-header">
+                    <form method="GET" action="">
+                        <input type="hidden" name="p" value="busqueda">
+                        <input class="mt-3 animate__animated animate__fadeInLeft" type="text" id="buscador"
+                            placeholder="Organizate!" />
+                    </form>
+                </div>
+                <div class="list-group list-group-flush font">
+                    <a href="#" href="#submenuEvento" class="list-group-item list-group-item-action bg-light" data-toggle="collapse" aria-expanded="false">Evento</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Ubicacion</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Fecha</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Servicios</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Precio</a>
+                </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom fixed-top">
+                    <button class="btn btn-dark font" id="menu-toggle">Filtros</button>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-family: 'Nunito Sans', sans-serif; font-size: 1.2rem;">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0 text-center">
+                            <li class="nav-item active">
+                                <a class="nav-link mr-3" href="{% url 'index' %}">Inicio<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mr-3" href="#" data-toggle="modal"
+                                data-target="#ingresomodal">Ingresa</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Mas opciones
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'registro' %}">Registrate</a>
+                                    <a class="dropdown-item" href="{% url 'nosotros' %}">Nosotros</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#contactomodal" data-toggle="modal"
+                                    data-target="#contactomodal">Contactanos</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--Espacios-->
+                <main class="col-xs-12 col-sm-12 col-md-10">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="mt-3" aria-label="breadcrumb">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Sig.</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    {% for espacio in espacios %}
+                    <div class="card-columns mb-5">
+                        <a href="#" class="text-dark">
+                            <div class="card text-center p-3 m-2 mb-5 w-90 animate__animated animate__bounce itemEspacio"
+                                id="cards">
+                                <img class="card-img-top" src="{{espacio.imagen.url}}" alt="Hidden bar">
+                                <div class="card-body">
+                                    <h1 class="card-title">{{espacio.titulo}}</h1>
+                                    <p class="card-text">{{espacio.descripcion}}</p>
+                                    <p class="card-text"><small class="text-muted">Reserva YA!</small></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </main>   
+            </div>
+        </div>
+        <!--VENTANA MODAL INGRESO Y CONTACTO-->
+        <div class="modal fade" id="ingresomodal" tabindex="-1" role="dialog" aria-labelledby="ingresoModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-light">
+                    <div class="modal-header justify-content-center">
+                        <h2 class="modal-title text-center" id="ingresoModal"
+                            style="font-family: 'Kumbh Sans', sans-serif;">Ingresa a nuestra plataforma!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form class="formulario" method="GET" action="">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control m-2" id="datos"
+                                    placeholder="Tu email">
+                                <input type="password" name="contraseña" class="form-control m-2" id="datos"
+                                    placeholder="Contraseña">
+                                <a href="#">
+                                    <p class="mt-5 text-center">Olvide mi contraseña y/o usuario</p>
+                                </a>
+                                <a href="#">
+                                    <p class="text-center">No tengo cuenta</p>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-outline-secondary btn-block" id="modalIngreso"
+                            style="width: 10rem; margin-top: 25px;">Ingresar!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="contactomodal" tabindex="-1" role="dialog" aria-labelledby="contactoModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-light">
+                    <div class="modal-header justify-content-center">
+                        <h2 class="modal-title text-center" id="contactoModal"
+                            style="font-family: 'Kumbh Sans', sans-serif;">Siempre a tu disposición</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form class="formulario" method="GET" action="">
+                            <div class="form-group">
+                                <input type="text" name="nombre" class="form-control mt-2" id="datos"
+                                    placeholder="Tu nombre y apellido">
+                                <input type="email" name="email" class="form-control mt-2" id="datos"
+                                    placeholder="Tu email">
+                                <textarea rows="5" name="pedido" cols="10" placeholder="¿Que quieres escribirnos?"
+                                    class="form-control mt-4" id="datos"></textarea>
+                                <p class="mt-4 text-center display-5" data-toggle="tooltip" data-placement="top"
+                                    title="Llamanos al 2995067624! o acercate Hipolito 675 Neuquén.">Contactate
+                                    directamente!</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-outline-secondary btn-block" id="modalContacto"
+                            style="width: 10rem; margin-top: 1rem;">Enviar!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--EMPIEZA FOOTER-->
+        <div class="row" style="background-color: #001149;">
+            <div class="col-md-12">
+                <footer class="page-footer font-small indigo">
+                    <div class="container">
+                        <div class="row text-center d-flex justify-content-center pt-5">
+                            <div class="col-md-2 mb-3">
+                                <h6 class="text-uppercase font-weight-bold">
+                                    <a href="{% url 'registro' %}">Registrate</a>
+                                </h6>
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <h6 class="text-uppercase font-weight-bold">
+                                    <a href="{% url 'nosotros' %}">Sobre nosotros</a>
+                                </h6>
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <h6 class="text-uppercase font-weight-bold">
+                                    <a href="#!">Medios de pago</a>
+                                </h6>
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <h6 class="text-uppercase font-weight-bold">
+                                    <a href="#">Soporte</a>
+                                </h6>
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <h6 class="text-uppercase font-weight-bold">
+                                    <a href="#!">Contacto</a>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <hr class="rgba-white-light" style="margin: 0 15%;">
+                        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+                            <div class="col-md-8 col-12 mt-5">
+                                <p style="line-height: 1.7rem; color: white;">Meetings es una plataforma que une a
+                                    personas con proveedores de espacios privados asegurando la disponibilidad y pago
+                                    online,
+                                    no nos hacemos cargo de los conflictos que puedan surgir durante el desenvolvimiento
+                                    de tales eventos.
+                                    Para mas información viste la pagina de responsabilidad empresarial <a
+                                        href="#">www.meetings.com/responsabilidad.com</a>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="footer-copyright text-center py-3 text-white">© 2020 Copyright:
+                            <a href="https://mdbootstrap.com/"> Meetings.com</a>
+                        </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+
+</html>

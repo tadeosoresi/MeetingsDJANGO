@@ -23,7 +23,7 @@ class Usuarios(models.Model):
 class Espacios(models.Model):
     titulo = models.CharField(max_length=255)
     descripcion = models.CharField(max_length=255)
-    imagen = models.ImageField()
+    imagen = models.ImageField(upload_to='meetings')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
 

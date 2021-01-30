@@ -1,17 +1,117 @@
-{% extends "Meetings/base_items.html" %}
+{% extends "Meetings/base.html" %}
 {% load staticfiles %}
 {% block content %}
+    <div class="container-fluid" style="background-color: rgb(27, 26, 26)">
+        <!--Menu superior-->
+        <div class="row">
+            <div class="col-md-12 mb-5">
+                <header>
+                    <nav class="navbar navbar-expand-sm navbar-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCollapse"
+                            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-center" id="menuCollapse">
+                            <ul class="navbar-nav animate__animated animate__bounceInRight menuSup">
+                                <li><a href="{% url 'tienda' %}"
+                                        class="{% if request.path == '/shop' %}active{% endif %} nav-link text-light">Alquila!</a>
+                                </li>
+                                <li><a href="#" class="nav-link text-light" data-toggle="modal"
+                                        data-target="#ingresomodal" id="conteoIngreso">Ingresa</a></li>
+                                <li><a href="#" class="nav-link text-light" data-toggle="modal"
+                                        data-target="#contactomodal" id="conteoContacto">Contactanos</a></li>
+                                <li><a href="{% url 'registro' %}"
+                                        class="{% if request.path == '/register' %}active{% endif %} nav-link text-light"
+                                        id="conteoRegistro">Registrate</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+        </div>
+        <!--VENTANA MODAL INGRESO Y CONTACTO-->
+        <div class="modal fade" id="ingresomodal" tabindex="-1" role="dialog" aria-labelledby="ingresoModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-light">
+                    <div class="modal-header justify-content-center">
+                        <h2 class="modal-title text-center" id="ingresoModal"
+                            style="font-family: 'Kumbh Sans', sans-serif;">Ingresa a nuestra plataforma!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form class="formulario" method="GET" action="">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control m-2" id="datos"
+                                    placeholder="Tu email">
+                                <input type="password" name="contraseña" class="form-control m-2" id="datos"
+                                    placeholder="Contraseña">
+                                <a href="#">
+                                    <p class="mt-5 text-center">Olvide mi contraseña y/o usuario</p>
+                                </a>
+                                <a href="#">
+                                    <p class="text-center">No tengo cuenta</p>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-outline-secondary btn-block" id="modalIngreso"
+                            style="width: 10rem; margin-top: 25px;">Ingresar!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="contactomodal" tabindex="-1" role="dialog" aria-labelledby="contactoModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-light">
+                    <div class="modal-header justify-content-center">
+                        <h2 class="modal-title text-center" id="contactoModal"
+                            style="font-family: 'Kumbh Sans', sans-serif;">Siempre a tu disposición</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form class="formulario" method="GET" action="">
+                            <div class="form-group">
+                                <input type="text" name="nombre" class="form-control mt-2" id="datos"
+                                    placeholder="Tu nombre y apellido">
+                                <input type="email" name="email" class="form-control mt-2" id="datos"
+                                    placeholder="Tu email">
+                                <textarea rows="5" name="pedido" cols="10" placeholder="¿Que quieres escribirnos?"
+                                    class="form-control mt-4" id="datos"></textarea>
+                                <p class="mt-4 text-center display-5" data-toggle="tooltip" data-placement="top"
+                                    title="Llamanos al 2995067624! o acercate Hipolito 675 Neuquén.">Contactate
+                                    directamente!</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-outline-secondary btn-block" id="modalContacto"
+                            style="width: 10rem; margin-top: 1rem;">Enviar!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-xs-12">
+                <p class="display-3 text-light text-center mt-5">Nacimos sabiendo que las reuniones son lo mas
+                    importante en nuestras vidas</p>
+            </div>
+            <div class="col-md-7 col-xs-12">
 
-<div class="row">
-    <div class="col-md-5 col-xs-12">
+            </div>
 
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-xs-12">
+
+            </div>
+            <div class="col-md-5 col-xs-12">
+                <p class="display-3 text-light text-center mb-5">Queremos darle la posibilidad a todos</p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-7 col-xs-12">
-
-    </div>
-
-</div>
-
-
-
 {% endblock %}
+</body>
+
+</html>

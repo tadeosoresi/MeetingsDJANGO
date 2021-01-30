@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = ')na5f*njfi3p&3#^b3+nxfofyg5e=00km-4jy3sze8m)xfeu+s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'curso_django',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': 'asapteezy',
         'HOST': 'LOCALHOST',
         'DATABASE_PORT': '5432',
     }
@@ -131,6 +131,10 @@ STATIC_ROOT = os.path.join(BASE_DIR,  'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'Meetings'),
 )
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
